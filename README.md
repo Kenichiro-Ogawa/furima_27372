@@ -2,101 +2,53 @@
 
 ## users table
 
-| Column   | Type   | Options                  |
-| -------- | ------ | ------------------------ |
-| name     | string | null: false, index: true |
-| email    | string | null: false, index: true |
-| password | string | null: false              |
+| Column           | Type    | Options                  |
+| ---------------- | ------- | ------------------------ |
+| name             | string  | null: false, index: true |
+| email            | string  | null: false, index: true |
+| password         | string  | null: false              |
+| family-name      | string  | null: false              |
+| first-name       | string  | null: false              |
+| family-name-kana | string  | null: false              |
+| first-name-kana  | string  | null: false              |
+| birth-year       | integer | null: false              |
+| birth-month      | integer | null: false              |
+| birth-date       | integer | null: false              |
 
 ### Association
 
-- has_one :user-details
 - has_many :products
 - has_many :purchases
 - has_many :comments
 
-## user-details table
-
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| user             | references | null: false, foreign_key: true |
-| family-name      | string     | null: false                    |
-| first-name       | string     | null: false                    |
-| family-name-kana | string     | null: false                    |
-| first-name-kana  | string     | null: false                    |
-| birth-year       | integer    | null: false                    |
-| birth-month      | integer    | null: false                    |
-| birth-date       | integer    | null: false                    |
-
-### Association
-
-- belongs_to :user
-
 ## products table
-
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| image  | string     | null: false                    |
-| name   | string     | null: false                    |
-| info   | string     | null: false                    |
-
-### Association
-
-- belongs_to :user
-- has_one :product-detail
-- has_one :price
-- has_one :delivery
-- belongs_to :purchase
-- has_many :comments
-
-## product-details table
-
-| Column   | Type       | Options                        |
-| -------- | ---------- | ------------------------------ |
-| product  | references | null: false, foreign_key: true |
-| category | string     | null: false                    |
-| status   | string     | null: false                    |
-
-### Association
-
-- belongs_to :product
-
-## prices table
-
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| product          | references | null: false, foreign_key: true |
-| price            | int        | null: false                    |
-| sales-commission | int        |
-| sales-profit     | int        |
-
-### Association
-
-- belongs_to :product
-
-## deliveries table
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| product       | references | null: false, foreign_key: true |
+| user          | references | null: false, foreign_key: true |
+| image         | string     | null: false                    |
+| name          | string     | null: false                    |
+| info          | string     | null: false                    |
+| category      | string     | null: false                    |
+| status        | string     | null: false                    |
+| price         | int        | null: false                    |
 | delivery-fee  | string     | null: false                    |
 | prefecture    | string     | null: false                    |
 | delivery-time | string     | null: false                    |
 
 ### Association
 
-- belongs_to :product
+- belongs_to :user
+- belongs_to :purchase
+- has_one :delivery-destination
+- has_many :comments
 
 ## purchases table
 
-| Column       | Type       | Options                        |
-| ------------ | ---------- | ------------------------------ |
-| user         | references | null: false, foreign_key: true |
-| product      | references | null: false, foreign_key: true |
-| credit-num   | integer    | null: false                    |
-| credit-month | integer    | null: false                    |
-| credit-date  | integer    | null: false                    |
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| product | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -119,6 +71,7 @@
 ### Associations
 
 - belongs_to :purchase
+- belongs_to :product
 
 ## comments table
 
