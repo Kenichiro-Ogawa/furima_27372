@@ -7,21 +7,21 @@
 | name             | string  | null: false, index: true |
 | email            | string  | null: false, index: true |
 | password         | string  | null: false              |
-| family-name      | string  | null: false              |
-| first-name       | string  | null: false              |
-| family-name-kana | string  | null: false              |
-| first-name-kana  | string  | null: false              |
-| birth-year       | integer | null: false              |
-| birth-month      | integer | null: false              |
-| birth-date       | integer | null: false              |
+| family_name      | string  | null: false              |
+| first_name       | string  | null: false              |
+| family_name_kana | string  | null: false              |
+| first_name_kana  | string  | null: false              |
+| birth_year       | integer | null: false              |
+| birth_month      | integer | null: false              |
+| birth_date       | integer | null: false              |
 
 ### Association
 
-- has_many :products
+- has_many :items
 - has_many :purchases
 - has_many :comments
 
-## products table
+## items table
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
@@ -32,15 +32,15 @@
 | category      | string     | null: false                    |
 | status        | string     | null: false                    |
 | price         | int        | null: false                    |
-| delivery-fee  | string     | null: false                    |
+| delivery_fee  | string     | null: false                    |
 | prefecture    | string     | null: false                    |
-| delivery-time | string     | null: false                    |
+| delivery_time | string     | null: false                    |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :purchase
-- has_one :delivery-destination
+- has_one :delivery_destination
 - has_many :comments
 
 ## purchases table
@@ -53,15 +53,15 @@
 ### Association
 
 - belongs_to :user
-- has_one :product
-- has_one :delivery-destination
+- has_one :item
+- has_one :delivery_destination
 
-## delivery-destinations table
+## delivery_destinations table
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
 | purchase    | references | null: false, foreign_key: true |
-| postal-code | integer    | null: false                    |
+| postal_code | integer    | null: false                    |
 | prefecture  | string     | null: false                    |
 | city        | string     | null: false                    |
 | street      | string     | null: false                    |
@@ -71,7 +71,7 @@
 ### Associations
 
 - belongs_to :purchase
-- belongs_to :product
+- belongs_to :item
 
 ## comments table
 
@@ -82,4 +82,4 @@
 | text    | string     |
 
 - belongs_to :user
-- belongs_to :product
+- belongs_to :item
