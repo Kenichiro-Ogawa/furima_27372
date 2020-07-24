@@ -6,9 +6,9 @@ class User < ApplicationRecord
 
   has_many :items
 
-  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])[a-z\d]\z/
+  VALID_PASSWORD_REGEX = /\A[a-zA-Z0-9]+\z/
   VALID_NAME_REGEX = /\A[ぁ-んァ-ン一-龥]/
-  VALID_KANA_REGEX = /\A([ァ-ン]|ー)\z/
+  VALID_KANA_REGEX = /\A[ァ-ヶー－]+\z/
 
   with_options presence: true do
     validates :nickname, uniqueness: {case_sensitive: true}
