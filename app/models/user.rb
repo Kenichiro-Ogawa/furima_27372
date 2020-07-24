@@ -13,7 +13,7 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :nickname, uniqueness: { case_sensitive: true }
     validates :email, uniqueness: { case_sensitive: true }
-    validates :password, length: { minimum: 6 }, format: { with: VALID_PASSWORD_REGEX }
+    validates :password, format: { with: VALID_PASSWORD_REGEX }
     validates :family_name, format: { with: VALID_NAME_REGEX }
     validates :first_name, format: { with: VALID_NAME_REGEX }
     validates :family_name_kana, format: { with: VALID_KANA_REGEX }
