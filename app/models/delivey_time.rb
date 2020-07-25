@@ -1,0 +1,2 @@
+class DeliveyTime < ApplicationRecord
+end
