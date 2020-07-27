@@ -63,3 +63,9 @@ end
 gem 'pry-rails'
 
 gem 'devise'
+
+gem 'active_hash'
+
+gem 'mini_magick'
+
+gem 'jquery-rails'
