@@ -1,6 +1,7 @@
 FactoryBot.define do
 
   factory :item do
+    image {File.open("#{Rails.root}/public/images/test_image.jpg")}
     name  {'test'}
     info  {'test_info'}
     category_id {2}
