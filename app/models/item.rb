@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   validates :image, :name, :info, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
 
   with_options numericality: { other_than: 1 } do
     validates :category_id, :status_id, :delivery_fee_id, :delivery_time_id, :prefecture_id
