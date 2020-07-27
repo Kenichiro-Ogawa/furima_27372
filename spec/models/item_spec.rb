@@ -29,27 +29,27 @@ describe Item do
     it 'カテゴリーが"---"のままだと保存できないこと' do
       @item.category_id = 1
       @item.valid?
-      expect(@item.errors[:category_id]).to include("must be other than 1")
+      expect(@item.errors[:category_id]).to include('must be other than 1')
     end
     it '商品の状態が"---"のままだと保存できないこと' do
       @item.status_id = 1
       @item.valid?
-      expect(@item.errors[:status_id]).to include("must be other than 1")
+      expect(@item.errors[:status_id]).to include('must be other than 1')
     end
     it '配送料の負担が"---"のままだと保存できないこと' do
       @item.delivery_fee_id = 1
       @item.valid?
-      expect(@item.errors[:delivery_fee_id]).to include("must be other than 1")
+      expect(@item.errors[:delivery_fee_id]).to include('must be other than 1')
     end
     it '発送までの日数が"---"のままだと保存できないこと' do
       @item.delivery_time_id = 1
       @item.valid?
-      expect(@item.errors[:delivery_time_id]).to include("must be other than 1")
+      expect(@item.errors[:delivery_time_id]).to include('must be other than 1')
     end
     it '発送元の地域が"---"のままだと保存できないこと' do
       @item.prefecture_id = 1
       @item.valid?
-      expect(@item.errors[:prefecture_id]).to include("must be other than 1")
+      expect(@item.errors[:prefecture_id]).to include('must be other than 1')
     end
     it '価格が空だと保存できないこと' do
       @item.price = nil
@@ -59,12 +59,12 @@ describe Item do
     it '価格が300円未満だと保存できないこと' do
       @item.price = 299
       @item.valid?
-      expect(@item.errors[:price]).to include("must be greater than or equal to 300")
+      expect(@item.errors[:price]).to include('must be greater than or equal to 300')
     end
     it '価格が9,999,9999円より上だと保存できないこと' do
-      @item.price = 10000000
+      @item.price = 10_000_000
       @item.valid?
-      expect(@item.errors[:price]).to include("must be less than or equal to 9999999")
+      expect(@item.errors[:price]).to include('must be less than or equal to 9999999')
     end
   end
 end
