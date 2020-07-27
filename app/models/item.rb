@@ -8,8 +8,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :delivery_time
   belongs_to_active_hash :prefecture
 
-  validates :image, :name, :info, :category, :status, :delivery_fee, :prefecture, :delivery_time, presence: true
-  validates :price, presence: true, length: { in: 300..9999999 }
+  validates :image, :name, :info, presence: true
+  validates :price, presence: true
 
   with_options numericality: { other_than: 1 } do
     validates :category_id, :status_id, :delivery_fee_id, :delivery_time_id, :prefecture_id
