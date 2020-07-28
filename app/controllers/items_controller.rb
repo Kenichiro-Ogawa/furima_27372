@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: :show
   def index
     @items = Item.all.order('created_at DESC')
   end
@@ -15,6 +16,9 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
   end
 
   private
@@ -33,7 +37,7 @@ class ItemsController < ApplicationController
     ).merge(user_id: current_user.id)
   end
 
-  def move_to_index
-    redirect_to action: :index unless user_signed_in?
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
