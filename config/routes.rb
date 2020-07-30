@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :items do
     resources :purchases, only: :index
     member do
-      get 'index', to: 'purchases#index'
+      get 'index'
     end
   end
 end
