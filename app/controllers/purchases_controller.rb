@@ -6,10 +6,12 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    @purchase = Purchase.new(order_params)
-    if @order.valid?
+    # @item = Item.find(params[:item_id])
+    @purchase = Purchase.new
+    binding.pry
+    if @purchase.valid?
       pay_item
-      @order.save
+      @purchase.save
       return redirect_to root_path
     else
       render 'index'
@@ -25,8 +27,9 @@ class PurchasesController < ApplicationController
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      card: order_params[:token],    # カードトークン
-      currency:'jpy'                 # 通貨の種類
+      amount: @item.price,
+      card: order_params[:token],
+      currency:'jpy'
     )
   end
 
