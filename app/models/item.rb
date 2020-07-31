@@ -1,7 +1,6 @@
 class Item < ApplicationRecord
   has_one_attached :image
   belongs_to :user
-  belongs_to :purchase
   has_one :delivery_destination
 
   extend ActiveHash::Associations::ActiveRecordExtensions
