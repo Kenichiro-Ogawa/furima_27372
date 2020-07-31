@@ -1,8 +1,8 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_item, only: [:index, :create, :pay_item]
 
   def index
-    @item = Item.find(params[:item_id])
   end
 
   def create
@@ -18,6 +18,11 @@ class PurchasesController < ApplicationController
 
   private
 
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
+
   def order_params
     params.permit(:token)
   end
@@ -32,6 +37,6 @@ class PurchasesController < ApplicationController
   end
 
   def purchase_params
-    params.require(:purchase_delivery_destination).permit(:user_id, :item_id, :postal_code, :prefecture_id, :city, :street, :building, :phone)
+    params.permit(:item_id, :postal_code, :prefecture_id, :city, :street, :building, :phone)
   end
 end
