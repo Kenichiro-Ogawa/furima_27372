@@ -6,9 +6,7 @@ class PurchasesController < ApplicationController
   end
 
   def create
-    # @item = Item.find(params[:item_id])
-    @purchase = Purchase.new
-    binding.pry
+    @purchase = PurchaseDeliveryDestination.new(purchase_params)
     if @purchase.valid?
       pay_item
       @purchase.save
@@ -33,4 +31,7 @@ class PurchasesController < ApplicationController
     )
   end
 
+  def purchase_params
+    params.require(:purchase_delivery_destination).permit(:user_id, :item_id, :postal_code, :prefecture_id, :city, :street, :building, :phone)
+  end
 end
