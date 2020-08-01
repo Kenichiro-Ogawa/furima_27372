@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(version: 2020_07_30_064233) do
 
   create_table "delivery_destinations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "purchase_id", null: false
-    t.integer "postal_code", null: false
+    t.string "postal_code", null: false
     t.string "prefecture_id", null: false
     t.string "city", null: false
     t.string "street", null: false
     t.string "building"
-    t.integer "phone", null: false
+    t.string "phone", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["purchase_id"], name: "index_delivery_destinations_on_purchase_id"
