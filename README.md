@@ -38,7 +38,6 @@
 
 - belongs_to :user
 - belongs_to :purchase
-- has_one :delivery_destination
 - has_many :comments
 
 ## purchases table
@@ -69,7 +68,6 @@
 ### Associations
 
 - belongs_to :purchase
-- belongs_to :item
 
 ## comments table
 
