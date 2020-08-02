@@ -38,15 +38,14 @@
 
 - belongs_to :user
 - belongs_to :purchase
-- has_one :delivery_destination
 - has_many :comments
 
 ## purchases table
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| user    | references | null: false, foreign_key: true |
-| product | references | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -59,25 +58,24 @@
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
 | purchase    | references | null: false, foreign_key: true |
-| postal_code | integer    | null: false                    |
+| postal_code | string     | null: false                    |
 | prefecture  | string     | null: false                    |
 | city        | string     | null: false                    |
 | street      | string     | null: false                    |
 | building    | string     | null: false                    |
-| phone       | integer    | null: false                    |
+| phone       | string     | null: false                    |
 
 ### Associations
 
 - belongs_to :purchase
-- belongs_to :item
 
 ## comments table
 
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| user    | references | null: false, foreign_key: true |
-| product | references | null: false, foreign_key: true |
-| text    | string     |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
+| text   | string     |
 
 - belongs_to :user
 - belongs_to :item
