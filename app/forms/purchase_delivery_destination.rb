@@ -12,14 +12,12 @@ class PurchaseDeliveryDestination
 
   def save
     purchase = Purchase.create(user_id: user_id, item_id: item_id)
-    DeliveryDestination.create( purchase_id: purchase.id,
-                                postal_code: postal_code,
-                                prefecture_id: prefecture_id,
-                                city: city,
-                                street: street,
-                                building: building,
-                                phone: phone,
-                              )
+    DeliveryDestination.create(purchase_id: purchase.id,
+                               postal_code: postal_code,
+                               prefecture_id: prefecture_id,
+                               city: city,
+                               street: street,
+                               building: building,
+                               phone: phone)
   end
-
 end

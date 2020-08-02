@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to "/items/#{@item.id}"
     else
-      render  :edit
+      render :edit
     end
   end
 

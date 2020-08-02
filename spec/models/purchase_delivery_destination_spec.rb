@@ -18,12 +18,12 @@ RSpec.describe PurchaseDeliveryDestination, type: :model do
     it '郵便番号にハイフンがないと保存できないこと' do
       @purchase_d_d.postal_code = '1234567'
       @purchase_d_d.valid?
-      expect(@purchase_d_d.errors[:postal_code]).to include("is invalid")
+      expect(@purchase_d_d.errors[:postal_code]).to include('is invalid')
     end
     it '郵便番号が文字列だと保存できないこと' do
       @purchase_d_d.postal_code = 'aaa-aaaa'
       @purchase_d_d.valid?
-      expect(@purchase_d_d.errors[:postal_code]).to include("is invalid")
+      expect(@purchase_d_d.errors[:postal_code]).to include('is invalid')
     end
 
     it '都道府県が"---"のままだと保存できないこと' do
@@ -52,17 +52,17 @@ RSpec.describe PurchaseDeliveryDestination, type: :model do
     it '電話番号にハイフンがあると保存できないこと' do
       @purchase_d_d.phone = '080-1234567'
       @purchase_d_d.valid?
-      expect(@purchase_d_d.errors[:phone]).to include("is invalid")
+      expect(@purchase_d_d.errors[:phone]).to include('is invalid')
     end
     it '電話番号が11桁より多いと保存できないこと' do
       @purchase_d_d.phone = '080123456789'
       @purchase_d_d.valid?
-      expect(@purchase_d_d.errors[:phone]).to include("is invalid")
+      expect(@purchase_d_d.errors[:phone]).to include('is invalid')
     end
     it '電話番号が10桁未満だと保存できないこと' do
       @purchase_d_d.phone = '080123456'
       @purchase_d_d.valid?
-      expect(@purchase_d_d.errors[:phone]).to include("is invalid")
+      expect(@purchase_d_d.errors[:phone]).to include('is invalid')
     end
   end
 end
