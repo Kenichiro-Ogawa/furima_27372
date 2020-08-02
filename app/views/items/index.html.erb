@@ -129,7 +129,7 @@
       <% if @items %>
       <% @items.each do |item| %>
       <li class='list'>
-        <%= link_to "/items/#{item.id}" do %>
+        <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
@@ -183,7 +183,7 @@
 </div>
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>出品する</span>
-  <%= link_to "/items/new" do %>
+  <%= link_to new_item_path do %>
     <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
   <% end %>
 </div>
