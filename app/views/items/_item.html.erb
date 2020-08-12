@@ -126,7 +126,7 @@
     </div>
 
     <div class="sell-btn-contents">
-      <% if current_page?(new_item_path) %>
+      <% if current_page?(new_item_path) || request.path == "/items" %>
         <%= f.submit "出品する", class:"sell-btn" %>
       <% else current_page?(edit_item_path) %>
         <%= f.submit "変更する", class:"sell-btn" %>
