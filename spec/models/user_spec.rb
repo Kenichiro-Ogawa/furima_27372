@@ -11,14 +11,14 @@ describe User do
     it 'nicknameが空だと保存できないこと' do
       user = build(:user, nickname: nil)
       user.valid?
-      expect(user.errors[:nickname]).to include("を入力してください")
+      expect(user.errors[:nickname]).to include('を入力してください')
     end
 
     # email
     it 'emailが空だと保存できないこと' do
       user = build(:user, email: nil)
       user.valid?
-      expect(user.errors[:email]).to include("を入力してください")
+      expect(user.errors[:email]).to include('を入力してください')
     end
     it '同じemailは登録できないこと' do
       user = create(:user)
@@ -36,7 +36,7 @@ describe User do
     it 'passwordが空だと保存できないこと' do
       user = build(:user, password: nil)
       user.valid?
-      expect(user.errors[:password]).to include("を入力してください")
+      expect(user.errors[:password]).to include('を入力してください')
     end
     it 'passwordが数字だけだと保存できないこと' do
       user = build(:user, password: '111111')
@@ -62,14 +62,14 @@ describe User do
     it 'passwordが存在してもpassword_confirmationが空では登録できないこと' do
       user = build(:user, password_confirmation: '')
       user.valid?
-      expect(user.errors[:password_confirmation]).to include("とパスワードの入力が一致しません")
+      expect(user.errors[:password_confirmation]).to include('とパスワードの入力が一致しません')
     end
 
     # 名字
     it 'family_nameが空だと保存できないこと' do
       user = build(:user, family_name: nil)
       user.valid?
-      expect(user.errors[:family_name]).to include("を入力してください")
+      expect(user.errors[:family_name]).to include('を入力してください')
     end
     it 'family_nameが数字だと保存できないこと' do
       user = build(:user, family_name: '123')
@@ -91,7 +91,7 @@ describe User do
     it 'first_nameが空だと保存できないこと' do
       user = build(:user, first_name: nil)
       user.valid?
-      expect(user.errors[:first_name]).to include("を入力してください")
+      expect(user.errors[:first_name]).to include('を入力してください')
     end
     it 'first_nameが数字だと保存できないこと' do
       user = build(:user, first_name: '123')
@@ -113,7 +113,7 @@ describe User do
     it 'family_name_kanaが空だと保存できないこと' do
       user = build(:user, family_name_kana: nil)
       user.valid?
-      expect(user.errors[:family_name_kana]).to include("を入力してください")
+      expect(user.errors[:family_name_kana]).to include('を入力してください')
     end
     it 'family_name_kanaが漢字だと保存できないこと' do
       user = build(:user, family_name_kana: '小川')
@@ -145,7 +145,7 @@ describe User do
     it 'first_name_kanaが空だと保存できないこと' do
       user = build(:user, first_name_kana: nil)
       user.valid?
-      expect(user.errors[:first_name_kana]).to include("を入力してください")
+      expect(user.errors[:first_name_kana]).to include('を入力してください')
     end
     it 'first_name_kanaが漢字だと保存できないこと' do
       user = build(:user, first_name_kana: '健一郎')
@@ -177,7 +177,7 @@ describe User do
     it 'birthdayに空の値があると保存できないこと' do
       user = build(:user, birthday: '1990-nil-21')
       user.valid?
-      expect(user.errors[:birthday]).to include("を入力してください")
+      expect(user.errors[:birthday]).to include('を入力してください')
     end
   end
 end

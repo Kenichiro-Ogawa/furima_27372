@@ -13,7 +13,7 @@ RSpec.describe PurchaseDeliveryDestination, type: :model do
     it '郵便番号が空だと保存できないこと' do
       @purchase_d_d.postal_code = nil
       @purchase_d_d.valid?
-      expect(@purchase_d_d.errors[:postal_code]).to include("を入力してください")
+      expect(@purchase_d_d.errors[:postal_code]).to include('を入力してください')
     end
     it '郵便番号にハイフンがないと保存できないこと' do
       @purchase_d_d.postal_code = '1234567'
@@ -35,19 +35,19 @@ RSpec.describe PurchaseDeliveryDestination, type: :model do
     it '市区町村が空だと保存できないこと' do
       @purchase_d_d.city = nil
       @purchase_d_d.valid?
-      expect(@purchase_d_d.errors[:city]).to include("を入力してください")
+      expect(@purchase_d_d.errors[:city]).to include('を入力してください')
     end
 
     it '番地が空だと保存できないこと' do
       @purchase_d_d.street = nil
       @purchase_d_d.valid?
-      expect(@purchase_d_d.errors[:street]).to include("を入力してください")
+      expect(@purchase_d_d.errors[:street]).to include('を入力してください')
     end
 
     it '電話番号が空だと保存できないこと' do
       @purchase_d_d.phone = nil
       @purchase_d_d.valid?
-      expect(@purchase_d_d.errors[:phone]).to include("を入力してください")
+      expect(@purchase_d_d.errors[:phone]).to include('を入力してください')
     end
     it '電話番号にハイフンがあると保存できないこと' do
       @purchase_d_d.phone = '080-1234567'

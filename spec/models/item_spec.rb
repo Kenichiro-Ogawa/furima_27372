@@ -14,17 +14,17 @@ describe Item do
     it '画像が空だと保存できないこと' do
       @item.image = nil
       @item.valid?
-      expect(@item.errors[:image]).to include("を入力してください")
+      expect(@item.errors[:image]).to include('を入力してください')
     end
     it '商品の名前が空だと保存できないこと' do
       @item.name = nil
       @item.valid?
-      expect(@item.errors[:name]).to include("を入力してください")
+      expect(@item.errors[:name]).to include('を入力してください')
     end
     it '商品の説明が空だと保存できないこと' do
       @item.info = nil
       @item.valid?
-      expect(@item.errors[:info]).to include("を入力してください")
+      expect(@item.errors[:info]).to include('を入力してください')
     end
     it 'カテゴリーが"---"のままだと保存できないこと' do
       @item.category_id = 1
@@ -54,7 +54,7 @@ describe Item do
     it '価格が空だと保存できないこと' do
       @item.price = nil
       @item.valid?
-      expect(@item.errors[:price]).to include("を入力してください")
+      expect(@item.errors[:price]).to include('を入力してください')
     end
     it '価格が300円未満だと保存できないこと' do
       @item.price = 299
