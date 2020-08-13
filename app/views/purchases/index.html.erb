@@ -28,7 +28,7 @@
       </p>
     </div>
 
-    <%= form_with model: @purchase, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= form_with model: @purchase, url: item_purchases_path(@item),id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
 
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
@@ -72,6 +72,9 @@
       <h1 class='info-input-haedline'>
         配送先入力
       </h1>
+
+    <%= render 'shared/error_messages', model: @purchase unless @purchase.nil? %>
+
       <div class="form-group">
         <div class='form-text-wrap'>
           <label class="form-text">郵便番号</label>

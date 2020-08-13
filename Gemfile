@@ -80,4 +80,4 @@ gem 'payjp'
 
 gem "aws-sdk-s3", require: false
 
-gem 'carrierwave'
+gem 'rails-i18n'
